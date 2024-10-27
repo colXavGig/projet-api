@@ -1,12 +1,9 @@
 from pymongo import MongoClient
+from .db import Database
+import app_config as config
 
+database = Database(connectrion_string = config.CONST_MONGO_URL, database_name = config.CONST_DATABASE)
+database.connect()
 
-__connection_string = ""
-with open("mongoDB_connectionString") as f:
-    connection_string = f.read()
-
-__db_client = MongoClient(connection_string)
-__db = __db_client['xgDB']
-
-user_collection = __db['users']
-task_collection = __db["task"]
+user_collection = database.database[config.CONST_USER_COLLECTION]
+task_collection = database.database[config.CONST_TASK_COLLECTION]
