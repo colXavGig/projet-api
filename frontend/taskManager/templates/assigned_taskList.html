@@ -1,0 +1,7 @@
+assigned task
+
+{{ error }}
+{% for task  in tasks %}
+    {% include "./composable/task_card.html" with task=task %}
+    <hr>
+{% endfor %}

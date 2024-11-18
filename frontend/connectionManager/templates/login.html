@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block main %}
+    {{ error }}
+    <form action="." method="post"> {% csrf_token %}
+        {% include "./composable/input.html" with input_name="username" %}
+        <br><br>
+        {% include "./composable/input.html" with input_name="email" %}
+        <br><br>
+        {% include "./composable/input.html" with input_name="password" %}
+        <br><br>
+        {% include "./composable/submit_button.html" %}
+    </form>
+{% endblock %}

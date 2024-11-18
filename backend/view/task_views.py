@@ -53,6 +53,7 @@ def get_created_task(*args, **kwargs) :
 
         return jsonify({'tasks' : tasks}), HTTPStatus.OK
     except Exception as e :
+        print(e)
         return jsonify({'error':f"{e}"}), HTTPStatus.INTERNAL_SERVER_ERROR
     
 ##########################################
@@ -70,7 +71,7 @@ def get_assigned_task() :
 
         tasks = task_con.find_assignedTo_tasks(user_info)
 
-        return jsonify( tasks ), HTTPStatus.OK
+        return jsonify( {'tasks':tasks} ), HTTPStatus.OK
     except Exception as e :
         return jsonify( {'error':f"{e}"} ), HTTPStatus.INTERNAL_SERVER_ERROR
 

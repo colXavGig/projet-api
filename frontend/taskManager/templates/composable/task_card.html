@@ -1,0 +1,26 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header"> 
+                    {{ task['description']}}                    
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Assigné à</h5>
+                    <p class="card-text">{{ task['assignedToName'] }}</p>
+                    <h5 class="card-title">Créé par</h5>
+                    <p class="card-text">{{ task['createdByName'] }}</p>
+                    <h5 class="card-title">Fini</h5>
+                    <p class="card-text">{{ task['done'] }}</p>
+                </div>
+                <div class="card-footer">
+                    <form action="./{{ task['id'] }}" method="post">
+                        <input type="button" name="done" value="{{ not task['done'] }}">
+                    </form>
+                    <a href="./{{ task['id'] }}" class="btn btn-primary">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

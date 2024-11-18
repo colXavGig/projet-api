@@ -51,8 +51,8 @@ def login():
             return jsonify({'error': 'Invalid Email or Password!'}), 400
 
         return login_user
-    except:
-        return jsonify({'error': 'Something went wrong on Login!'}), 500
+    except Exception as e:
+        return jsonify({'error': f'Something went wrong on Login! {e}'}), 500
 
 @user.route('/v0/users/all', methods=['GET'])
 def get_users():
