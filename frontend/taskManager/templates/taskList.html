@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block main %}
+    {{ error }}
+    <div class="d-flex">
+    {% for task  in tasks %}
+        {% include "./composable/task_card.html" with task=task %}
+    {% endfor %}
+    </div>
+{% endblock main %}

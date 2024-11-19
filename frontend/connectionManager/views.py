@@ -1,6 +1,18 @@
 from django.shortcuts import render, redirect, HttpResponse
 import requests as req
 
+pages = [
+    {
+        'name':'Login',
+        'url':'/user/login/',
+        'active':False
+    },
+    {
+        'name':'Register',
+        'url':'/user/signup/',
+        'active':False
+    }
+]
 # Create your views here.
 def signup(request, **kwargs) :
     html = 'signup.html'

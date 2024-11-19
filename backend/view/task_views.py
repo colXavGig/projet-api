@@ -93,6 +93,7 @@ def task_management(taskUid) :
         try :
             if req.content_type != 'application/json' :
                 return jsonify( {'error':'Invalid content-type'} ), HTTPStatus.UNSUPPORTED_MEDIA_TYPE
+
             body = req.json
             
             if 'done' not in body :

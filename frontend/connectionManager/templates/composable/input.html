@@ -1,2 +1,8 @@
-<label for="{{ input_name }}">{{ input_name}}: </label>
-<input type="{{ input_name }}" name="{{ input_name }}" placeholder="{{ input_name }}">
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">{{ input_name }}</span>
+  <input type="{% if input_name == 'password' %}{{input_name}}{% else %}text{% endif %}" 
+  class="form-control" 
+  placeholder="{{ input_name }}" 
+  aria-label="{{ input_name }}" 
+  aria-describedby="basic-addon1">
+</div>

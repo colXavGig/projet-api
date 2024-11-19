@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Create task{% endblock title %}
+
+{% block main %}
+<div class="m-3 container-sm">
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <form action="." method="post"> {% csrf_token %}
+        {% include "./composable/input.html" with input_name="description" %}
+        <select name="assignedToUid" class="form-select form-select-lg mb-3" aria-label="Large select example">
+            <option selected>Select an user</option>
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        {% include "./composable/submit_button.html" %}
+    </form>
+</div>
+{% endblock main %}
